@@ -119,12 +119,14 @@
       document.body.appendChild(script);
 
     </script>
-	
-	if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
-	{
-		<div style="position:fixed;bottom:10px;left:10px;">
-		<button onclick="TelegramGameProxy.shareScore()">Share</button>
-	}
+	<script>
+		var gameInstance = UnityLoader.instantiate("unity-container", "%UNITY_WEBGL_BUILD_URL%", {onProgress: UnityProgress});
+    </script>
+
+
+	<div style="position:fixed;bottom:10px;left:10px;">
+	<button onclick="TelegramGameProxy.shareScore()">Share</button>
+
 	  
 	<script src="https://telegram.org/js/games.js"></script>
   </body>
