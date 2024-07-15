@@ -103,7 +103,7 @@
       loadingBar.style.display = "block";
 
     var gameInstance = null;
-	/*createUnityInstance(canvas, {
+	createUnityInstance(document.querySelector("#unity-canvas"), {
 		dataUrl: "Build/verycoin.data",
 		frameworkUrl: "Build/verycoin.framework.js",
 		codeUrl: "Build/verycoin.wasm",
@@ -113,7 +113,7 @@
 		productVersion: "0.1",
 	}).then((unityInstance) => {
 		gameInstance = unityInstance;
-	}); */
+	}); 
   
       var script = document.createElement("script");
       script.src = loaderUrl;
