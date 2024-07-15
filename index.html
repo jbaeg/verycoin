@@ -107,7 +107,9 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
+			   console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 			    gameInstance = unityInstance;
+				   console.log("bbbbbbbbbbbbbbbbbbbbbbbbbb");
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   window.vuplex.SetFullscreen(1)/*https://support.vuplex.com/articles/webgl-fullscreen*/;
