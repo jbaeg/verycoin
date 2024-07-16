@@ -26,6 +26,7 @@
         <div id="unity-build-title">VeryCoin</div>
       </div>
     </div>
+	<div id="user-data"></div>
 	<script>
       // Eruda 초기화 (모바일 콘솔)
       eruda.init();
@@ -45,6 +46,20 @@
 	</script>
 
     <script>
+	   if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
+            Telegram.WebApp.ready();
+            const user = Telegram.WebApp.initDataUnsafe.user;
+            if (user) {
+                document.getElementById('user-data').innerText = `Hello, ${user.first_name} ${user.last_name} (ID: ${user.id})`;
+                console.log("User Data:", user);
+            } else {
+                document.getElementById('user-data').innerText = "User data is not available.";
+                console.log("User data is not available.");
+            }
+        } else {
+            console.log("Telegram WebApp SDK not found.");
+        }
+		
       var gameInstance = null;
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -142,22 +157,8 @@
       document.body.appendChild(script);
 
     </script>
-	<div id="user-data"></div>
-  <script>
-        if (typeof Telegram !== 'undefined' && Telegram.WebApp) {
-            Telegram.WebApp.ready();
-            const user = Telegram.WebApp.initDataUnsafe.user;
-            if (user) {
-                document.getElementById('user-data').innerText = `Hello, ${user.first_name} ${user.last_name} (ID: ${user.id})`;
-                console.log("User Data:", user);
-            } else {
-                document.getElementById('user-data').innerText = "User data is not available.";
-                console.log("User data is not available.");
-            }
-        } else {
-            console.log("Telegram WebApp SDK not found.");
-        }
-    </script>
+	
+
 	<div style="position:fixed;bottom:10px;left:10px;">
 	<button onclick="TelegramGameProxy.shareScore()">Share</button>
 	  
