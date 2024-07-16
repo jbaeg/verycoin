@@ -45,8 +45,9 @@
       console.log('Hello from mobile!');
 	</script>
 	<script>
-		function emptyFunction() {
-            // 이 함수는 아무것도 하지 않습니다
+		function emptyFunction() 
+		{
+           console.log("eeeeeeeeeeeeeeeeeeeee");
         }
  	</script>
     <script>
@@ -143,7 +144,7 @@
 
       var script = document.createElement("script");
       script.src = loaderUrl;
-	    console.log("000000000000=="+loaderUrl);
+	
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
