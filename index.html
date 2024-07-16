@@ -47,18 +47,24 @@
 
     <script>
 		console.log("2323232323232323");
-		document.addEventListener('DOMContentLoaded', function() {
-		    	console.log("ABABABABABABABABAB");
+		document.addEventListener('DOMContentLoaded', function() 
+		{
+			console.log("ABABABABABABABABAB");
+			 window.Telegram.WebApp.ready();
+				 
 			if (window.Telegram && window.Telegram.WebApp) 
 			{
 			    console.log("0000000000000000");
+			    const startParam = window.Telegram.WebApp.startParam;
+				console.log('1111111111111==', startParam);
+	
 				const initData = window.Telegram.WebApp.initDataUnsafe;
-				console.log("111111111="+ initData);
+				console.log("2222222222222="+ initData);
 				if (initData && initData.user) 
 				{
-				    console.log("2222222222222");
+				    console.log("333333333333333");
 					const userId = initData.user.id;
-				    console.log("33333333=="+ userId);
+				    console.log("44444444444=="+ userId);
 				
 					// 여기서 userId를 게임 로직에 활용할 수 있습니다.
 				}
