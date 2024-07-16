@@ -47,18 +47,12 @@
       // 테스트 로그
       console.log('Hello from mobile!');
 	</script>
-	<script>
-		function emptyFunction() 
-		{
-		   console.log("AAAAAAAAAAA");	
-           console.log("000000000=="+ window.Telegram.WebApp.initDataUnsafe.user.id);		
-        }
- 	</script>
+
     <script>
 	   console.log("00000000000");			
-		const interval = setInterval(function () {
+		const interval = function () {
 			 console.log("uuuuuuuuuuu=="+ window.Telegram.WebApp.initDataUnsafe.user.id);			
-		}, 5000);
+		};
 		 console.log("111111111111");			
 		 
       var gameInstance = null;
