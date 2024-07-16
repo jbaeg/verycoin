@@ -55,8 +55,12 @@
 			if (window.Telegram && window.Telegram.WebApp) 
 			{
 			    console.log("0000000000000000");
-			    const startParam = window.Telegram.WebApp.startParam;
+			  const urlParams = new URLSearchParams(window.location.hash.slice(1));
+				const startParam = urlParams.get('tgWebAppStartParam');
 				console.log('1111111111111==', startParam);
+				if (startParam) {
+					console.log('Bot URL=====', decodeURIComponent(startParam));
+				}				
 	
 				const initData = window.Telegram.WebApp.initDataUnsafe;
 				console.log("2222222222222="+ initData);
