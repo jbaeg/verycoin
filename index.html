@@ -49,11 +49,18 @@
 	</script>
 
     <script>
-	   console.log("111111111111111");			
-		const interval = function () {
-			 console.log("uuuuuuuuuuu=="+ window.Telegram.WebApp.initDataUnsafe.user.id);			
-		};
-		 console.log("2222222222222");			
+		console.log("1212121212");
+		document.addEventListener('DOMContentLoaded', function() 
+		{
+			
+			setTimeout(function() 
+			{
+			     console.log("11111111111111111");
+				 console.log("ABABABABABABABABAB=="+ window.Telegram.WebApp.initDataUnsafe.user.id);
+				  console.log("22222222222222222");
+
+			}, 1000);  // 1초 지연
+		});		
 		 
       var gameInstance = null;
       var container = document.querySelector("#unity-container");
