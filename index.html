@@ -51,13 +51,12 @@
             const user = Telegram.WebApp.initDataUnsafe.user;
             if (user) {
                 document.getElementById('user-data').innerText = `Hello, ${user.first_name} ${user.last_name} (ID: ${user.id})`;
-                console.log("User Data:", user);
-            } else {
-                document.getElementById('user-data').innerText = "User data is not available.";
-                console.log("User data is not available.");
+                console.log("8888888888888==", user);
+            } else {               
+                console.log("99999999999999999999999999");
             }
         } else {
-            console.log("Telegram WebApp SDK not found.");
+            console.log("7777777777777777777");
         }
 		
       var gameInstance = null;
