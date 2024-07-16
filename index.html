@@ -46,18 +46,19 @@
 	</script>
 
     <script>
-		console.log("34343434343434343");
+		console.log("1212121212");
 		document.addEventListener('DOMContentLoaded', function() 
 		{
-			console.log("ABABABABABABABABAB=="+ TelegramGameProxy.initParams);
-			 window.Telegram.WebApp.ready();
-			console.log("000000000000000000=="+TelegramGameProxy.initParams.userid);
+			
 			setTimeout(function() 
 			{
 			     console.log("11111111111111111");
-				var user = Telegram.WebApp.initDataUnsafe.user;
-				console.log("22222222222222==", user);
-			}, 1000);  // 1초 지연
+				 console.log("ABABABABABABABABAB=="+ TelegramGameProxy.initParams);
+		
+				console.log("000000000000000000=="+TelegramGameProxy.initParams.userid);
+			    TelegramGameProxy.shareScore();
+
+			}, 2000);  // 1초 지연
 		});
 		
       var gameInstance = null;
