@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="TemplateData/style.css">
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
   </head>
@@ -29,19 +30,6 @@
     </div>
 	<div id="user-data"></div>
 	
-	<script async src="https://telegram.org/js/telegram-widget.js?22" 
-		data-telegram-login="NewVeryCoinBot" 
-		data-size="large" 
-		data-onauth="onTelegramAuth(user)" 
-		data-request-access="write">
-		console.log("555555----6666666666");
-	</script>
-	<script type="text/javascript">
-		function onTelegramAuth(user) {
-			alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
-		}
-	</script>
-	
 	<script>
       // Eruda 초기화 (모바일 콘솔)
       eruda.init();
@@ -59,27 +47,11 @@
       // 테스트 로그
       console.log('Hello from mobile!');
 	</script>
-	<script>
-		function emptyFunction() 
-		{
-           console.log("eeeeeeeeeeeeeeeeeeeee");
-        }
- 	</script>
+
     <script>
-		console.log("1212121212");
-		document.addEventListener('DOMContentLoaded', function() 
-		{
-			
-			setTimeout(function() 
-			{
-			     console.log("11111111111111111");
-				 console.log("ABABABABABABABABAB=="+ TelegramGameProxy.initParams);
-		
-				console.log("000000000000000000=="+TelegramGameProxy.initParams.userid);
-
-
-			}, 5000);  // 1초 지연
-		});
+		const interval = setInterval(function () {
+			 console.log("uuuuuuuuuuu=="+ window.Telegram.WebApp.initDataUnsafe.user.id);			
+		}, 5000);
 		
       var gameInstance = null;
       var container = document.querySelector("#unity-container");
@@ -176,12 +148,6 @@
 
       document.body.appendChild(script);
 
-    </script>
-	<script>
-        const interval = setInterval(function () {
-		     console.log("uuuuuuuuuuu=="+ window.Telegram.WebApp.initDataUnsafe.user);
-			//window.unityInstance.SendMessage("TelegramController", "SetWebAppUser", JSON.stringify(window.Telegram.WebApp.initDataUnsafe.user));
-		}, 5000);
     </script>
 
 	<div style="position:fixed;bottom:10px;left:10px;">
