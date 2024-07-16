@@ -44,7 +44,11 @@
       // 테스트 로그
       console.log('Hello from mobile!');
 	</script>
-
+	<script>
+		function emptyFunction() {
+            // 이 함수는 아무것도 하지 않습니다
+        }
+ 	</script>
     <script>
 		console.log("1212121212");
 		document.addEventListener('DOMContentLoaded', function() 
@@ -139,13 +143,12 @@
 
       var script = document.createElement("script");
       script.src = loaderUrl;
+	    console.log("000000000000=="+loaderUrl);
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-			   console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-			    gameInstance = unityInstance;
-				   console.log("bbbbbbbbbbbbbbbbbbbbbbbbbb="+gameInstance);
+              }).then((unityInstance) => {			  
+			    gameInstance = unityInstance;				
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   window.vuplex.SetFullscreen(1)/*https://support.vuplex.com/articles/webgl-fullscreen*/;
