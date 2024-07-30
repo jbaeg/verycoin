@@ -6,10 +6,6 @@
     <title>Unity WebGL Player | VeryCoin</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-	<script src="https://telegram.org/js/telegram-web-app.js"></script>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -27,41 +23,8 @@
         <div id="unity-build-title">VeryCoin</div>
       </div>
     </div>
-	<div id="user-data"></div>
-	
-	<script>
-      // Eruda 초기화 (모바일 콘솔)
-      eruda.init();
-  
-      // Socket.io 연결
-      const socket = io('http://localhost:3030');
-  
-      // 콘솔 로그 오버라이드
-      const originalConsole = console.log;
-      console.log = function() {
-          originalConsole.apply(console, arguments);
-         socket.emit('log', Array.from(arguments).join(' '));
-      };
-  
-      // 테스트 로그
-     // console.log('Hello from mobile!');
-	</script>
-	
     <script>
-		console.log("1212121212");
-		//document.addEventListener('DOMContentLoaded', function() 
-		//{
-			
-		//	setTimeout(function() 
-		//	{
-		//	     console.log("0000000");	
-		//		 console.log("4444444=="+ window.Telegram.WebApp.initDataUnsafe.user.id);
-		//		  console.log("55555555");
 
-		//	}, 1000);  // 1초 지연
-		//});	
-		
-	  var gameInstance = null;
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
@@ -96,9 +59,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/verycoin.loader.js";
       var config = {
-        dataUrl: buildUrl + "/verycoin.data",
-        frameworkUrl: buildUrl + "/verycoin.framework.js",
-        codeUrl: buildUrl + "/verycoin.wasm",
+        dataUrl: buildUrl + "/verycoin.data.unityweb",
+        frameworkUrl: buildUrl + "/verycoin.framework.js.unityweb",
+        codeUrl: buildUrl + "/verycoin.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "verychat",
         productName: "VeryCoin",
@@ -143,7 +106,6 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-			    gameInstance = unityInstance;				
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   window.vuplex.SetFullscreen(1)/*https://support.vuplex.com/articles/webgl-fullscreen*/;
