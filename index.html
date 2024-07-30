@@ -31,35 +31,35 @@
 	
 	<script>
       // Eruda 초기화 (모바일 콘솔)
-      eruda.init();
+     // eruda.init();
   
       // Socket.io 연결
-      const socket = io('http://localhost:3030');
+     // const socket = io('http://localhost:3030');
   
       // 콘솔 로그 오버라이드
-      const originalConsole = console.log;
-      console.log = function() {
-          originalConsole.apply(console, arguments);
-          socket.emit('log', Array.from(arguments).join(' '));
-      };
+     // const originalConsole = console.log;
+     // console.log = function() {
+     //     originalConsole.apply(console, arguments);
+     //     socket.emit('log', Array.from(arguments).join(' '));
+      //};
   
       // 테스트 로그
-      console.log('Hello from mobile!');
+     // console.log('Hello from mobile!');
 	</script>
 	
     <script>
 		console.log("1212121212");
-		document.addEventListener('DOMContentLoaded', function() 
-		{
+		//document.addEventListener('DOMContentLoaded', function() 
+		//{
 			
-			setTimeout(function() 
-			{
-			     console.log("0000000");	
-				 console.log("4444444=="+ window.Telegram.WebApp.initDataUnsafe.user.id);
-				  console.log("55555555");
+		//	setTimeout(function() 
+		//	{
+		//	     console.log("0000000");	
+		//		 console.log("4444444=="+ window.Telegram.WebApp.initDataUnsafe.user.id);
+		//		  console.log("55555555");
 
-			}, 1000);  // 1초 지연
-		});	
+		//	}, 1000);  // 1초 지연
+		//});	
 		
 	  var gameInstance = null;
       var container = document.querySelector("#unity-container");
