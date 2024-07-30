@@ -38,6 +38,13 @@
       // Modify or remove this function to customize the visually presented
       // way that non-critical warnings and error messages are presented to the
       // user.
+	  function disableDrag() {
+		
+		  if (canvas.length == 0) return requestAnimationFrame(disableDrag);
+		  canvas[0].ondragstart = function(event) { event.preventDefault(); return false; };
+		}
+		disableDrag();
+
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
