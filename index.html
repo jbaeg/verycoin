@@ -28,7 +28,9 @@
       </div>
     </div>
 	<div id="user-data"></div>
-	
+	<div id="buttons" style="margin-top:100px;">          
+	<button onclick="webviewClose();">Close</button>
+	</div>
 	<script>
       // Eruda 초기화 (모바일 콘솔)
       eruda.init();
@@ -46,7 +48,12 @@
       // 테스트 로그
       console.log('Hello from mobile!');
 	</script>
-	
+	<script>
+	Telegram.WebApp.MainButton
+			.setText('CLOSE WEBVIEW')
+			.show()
+			.onClick(function(){ webviewClose(); });
+	</script>
     <script>
 
       var gameInstance = null;
