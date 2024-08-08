@@ -48,9 +48,16 @@
 	</script>
 	<script>
 		function webviewClose() {
-		  Telegram.WebApp.showConfirm("VeryCoin\n  My changes may not be saved.", function(confirmed) {
-			if (confirmed) {
-			  // 사용자가 '확인'을 선택한 경우
+		  Telegram.WebApp.showPopup({
+			title: 'VeryCoin',
+			message: 'WebApp을 종료하시겠습니까?',
+			buttons: [
+			  {id: "cancel", type: "cancel", text: "취소"},
+			  {id: "close", type: "destructive", text: "그래도 닫기"}
+			]
+		  }, function(buttonId) {
+			if (buttonId === "close") {
+			  // 사용자가 '그래도 닫기'를 선택한 경우
 			  Telegram.WebApp.close();
 			} else {
 			  // 사용자가 '취소'를 선택한 경우
@@ -59,15 +66,18 @@
 		  });
 		}
 		
-		// 백버튼 클릭 감지 및 커스텀 동작 추가
-		Telegram.WebApp.onEvent('viewportChanged', function() {
-		  if (Telegram.WebApp.isExpanded) {
-			//Telegram.WebApp.BackButton.show();
-			Telegram.WebApp.BackButton.onClick(webviewClose);
-		  } else {
-			Telegram.WebApp.BackButton.hide();
-		  }
+		Telegram.WebApp.onEvent('closeRequested', function() {
+		  webviewClose();
 		});
+		// 백버튼 클릭 감지 및 커스텀 동작 추가
+	//	Telegram.WebApp.onEvent('viewportChanged', function() {
+	//	  if (Telegram.WebApp.isExpanded) {
+	//		Telegram.WebApp.BackButton.show();
+	//		Telegram.WebApp.BackButton.onClick(webviewClose);
+	//	  } else {
+	//		Telegram.WebApp.BackButton.hide();
+	//	  }
+     //});
 		
 
 	</script>
