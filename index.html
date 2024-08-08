@@ -28,9 +28,9 @@
       </div>
     </div>
 	<div id="user-data"></div>
-	<div id="buttons" style="margin-top:100px;">          
-	<button onclick="webviewClose();">Close</button>
-	</div>
+	//<div id="buttons" style="margin-top:100px;">          
+	//<button onclick="webviewClose();">Close</button>
+	//</div>
 	<script>
       // Eruda 초기화 (모바일 콘솔)
       eruda.init();
@@ -49,10 +49,29 @@
       console.log('Hello from mobile!');
 	</script>
 	<script>
-	Telegram.WebApp.MainButton
-			.setText('CLOSE WEBVIEW')
-			.show()
-			.onClick(function(){ webviewClose(); });
+		function webviewClose() {
+		  Telegram.WebApp.showConfirm("WebApp을 종료하시겠습니까?", function(confirmed) {
+			if (confirmed) {
+			  // 사용자가 '확인'을 선택한 경우
+			  Telegram.WebApp.close();
+			} else {
+			  // 사용자가 '취소'를 선택한 경우
+			  console.log("WebApp 종료가 취소되었습니다.");
+			}
+		  });
+		}
+		
+		// 백버튼 클릭 감지 및 커스텀 동작 추가
+		Telegram.WebApp.onEvent('viewportChanged', function() {
+		  if (Telegram.WebApp.isExpanded) {
+			Telegram.WebApp.BackButton.show();
+			Telegram.WebApp.BackButton.onClick(webviewClose);
+		  } else {
+			Telegram.WebApp.BackButton.hide();
+		  }
+		});
+		
+
 	</script>
     <script>
 
