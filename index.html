@@ -14,15 +14,10 @@
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=370 height=570 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
+   
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-       
+        <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">VeryCoin</div>
       </div>
@@ -56,8 +51,7 @@
       var gameInstance = null;
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+     
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
 
@@ -127,23 +121,21 @@
         canvas.style.height = "570px";
       }
 
-      loadingBar.style.display = "block";
-
+     
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-			    gameInstance = unityInstance;				
-                loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  window.vuplex.SetFullscreen(1)/*https://support.vuplex.com/articles/webgl-fullscreen*/;
-                };
-              }).catch((message) => {
-                alert(message);
-              });
-            };
+	  createUnityInstance(canvas, config, (progress) => {
+	  // 프로그레스 바 관련 코드를 제거합니다.
+	  }).then((unityInstance) => {
+	  gameInstance = unityInstance;				
+	  // loadingBar.style.display = "none";  // 이 줄을 제거합니다.
+	  fullscreenButton.onclick = () => {
+		window.vuplex.SetFullscreen(1);
+	  };
+	}).catch((message) => {
+	  alert(message);
+	});
 
       document.body.appendChild(script);
 
