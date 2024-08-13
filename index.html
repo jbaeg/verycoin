@@ -28,7 +28,7 @@
       </div>
     </div>
 	<div id="user-data"></div>
-
+	
 	<script>
       // Eruda 초기화 (모바일 콘솔)
       eruda.init();
@@ -46,14 +46,13 @@
       // 테스트 로그
       console.log('Hello from mobile!');
 	</script>
-	<script>
-		Telegram.WebApp.enableClosingConfirmation();
-		
-
+		<script>
+		Telegram.WebApp.enableClosingConfirmation();		
 	</script>
+	
     <script>
 
-      var gameInstance = null;
+	  var gameInstance = null;
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
