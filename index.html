@@ -48,8 +48,6 @@
 	</script>
 	<script>
 		Telegram.WebApp.enableClosingConfirmation();
-		
-
 	</script>
     <script>
 
@@ -125,14 +123,12 @@
 
         canvas.style.width = "370px";
         canvas.style.height = "570px";
-      }
-
-     
+      }    
 
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
+        createUnityInstance(canvas, config, (1) => {
           
               }).then((unityInstance) => {
 			    gameInstance = unityInstance;				
