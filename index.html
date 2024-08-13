@@ -128,7 +128,7 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
-        createUnityInstance(canvas, config, (1) => {
+        createUnityInstance(canvas, config, (progress) => {
           
               }).then((unityInstance) => {
 			    gameInstance = unityInstance;				
